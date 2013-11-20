@@ -28,7 +28,7 @@ end
 windows_batch "XD7 CRTL" do
   code <<-EOH
   cd c:\\XenDesktop7_1
-  c:\\XenDesktop7_1\\x64\\XenDesktopSetup\\XenDesktopServerSetup.exe /quiet /COMPONENTS CONTROLLER /CONFIGURE_FIREWALL /NOSQL
+  c:\\XenDesktop7_1\\x64\\XenDesktopSetup\\XenDesktopServerSetup.exe /quiet /COMPONENTS CONTROLLER /CONFIGURE_FIREWALL 
   EOH
   not_if {reboot_pending?}
 end
