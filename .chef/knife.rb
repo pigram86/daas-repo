@@ -9,3 +9,7 @@ chef_server_url          "https://api.opscode.com/organizations/daas"
 cache_type               'BasicFile'
 cache_options( :path => "#{ENV['HOME']}/.chef/checksums" )
 cookbook_path            ["#{current_dir}/../cookbooks"]
+cookbook_copyright       "Todd Pigram, LLC"
+cookbook_license         "apachev2"
+cookbook_email           "todd@toddpigram.com"
+
