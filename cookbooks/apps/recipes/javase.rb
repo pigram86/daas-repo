@@ -17,11 +17,12 @@
 # limitations under the License.
 #
 # Instal javase
-windows_Package "jre-7u40-windows-x64" do
+windows_Package "jdk-7u45-windows-x64" do
   source "http://pigramsoftware.no-ip.biz/repo/jdk-7u45-windows-x64.exe"
   options "/qn"
   installer_type :custom
   action :install
+  not_if {::FILE.exists?("C:\\Program Files\\Java\\jdk1.7.0_45\\jre.msi")}
   not_if {reboot_pending?}
 end
 
