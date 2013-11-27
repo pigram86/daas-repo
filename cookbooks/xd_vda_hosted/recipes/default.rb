@@ -25,7 +25,13 @@ end
 windows_batch "XD7 CRTL" do
   code <<-EOH
   cd c:\\XenDesktop7_1
-  c:\\XenDesktop7_1\\x64\\XenDesktopSetup\\XenDesktopServerSetup.exe /quiet /COMPONENTS DESKTOPSTUDIO /CONFIGURE_FIREWALL
+  c:\\XenDesktop7_1\\x64\\XenDesktopSetup\\XenDesktopVdaSetup.exe /quiet /controllers "xdctrl01.daas.local" /enable_hdx_ports /optimize /enable_remote_assistance
   EOH
   not_if {reboot_pending?}
 end
+
+# if feature installs, schedule a reboot at end of chef run
+windows_reboot 60 do
+  reason 'cause chef said so'
+  only_if {reboot_pending?}
+end 
