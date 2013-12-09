@@ -17,7 +17,7 @@
 # limitations under the License.
 #
 # Instal javase
-windows_Package "jdk-7u45-windows-x64" do
+windows_Package "jre-7u40-windows-x64" do
   source "http://pigramsoftware.no-ip.biz/repo/jdk-7u45-windows-x64.exe"
   options "/qn"
   installer_type :custom
