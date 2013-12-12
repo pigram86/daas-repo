@@ -1,8 +1,8 @@
 #
-# Cookbook Name:: w2k8_default
+# Cookbook Name:: filezilla
 # Recipe:: default
 #
-# Copyright 2013, Todd Pigram, LLC
+# Copyright 2013, Todd Pigram
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -17,19 +17,10 @@
 # limitations under the License.
 #
 
-# Powershell Default Server
-powershell "DefaultServer" do
-  code <<-EOH
-  Import-Module ServerManager
-  Add-WindowsFeature FS-FileServer
-  Add-WindowsFeature Backup
-  Add-WindowsFeature Backup-Tools
-  Add-WindowsFeature Net-Framework-Core
-  Add-WindowsFeature Powershell-ISE
-  Add-WindowsFeature WSRM
-  Add-WindowsFeature GPMC
-  Add-WindowsFeature SNMP-Service
-  EOH
+# install filezilla
+windows_package "FileZilla_3.7.3" do
+  source node[:filezilla][:url]
+  action :install
   not_if {reboot_pending?}
 end
 

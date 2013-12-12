@@ -43,6 +43,12 @@ windows_feature "WSRM" do
   not_if {reboot_pending?}
 end
 
+# install snmp
+#windows_feature "SNMP" do
+  #action :install
+  #not_if{reboot_pending}
+#end
+
 # install net 3 features
 windows_feature "NetFx3ServerFeatures" do
   action :install
