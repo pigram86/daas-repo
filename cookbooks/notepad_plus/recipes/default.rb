@@ -1,5 +1,5 @@
 #
-# Cookbook Name:: filezilla
+# Cookbook Name:: notepad_plus
 # Recipe:: default
 #
 # Copyright 2013, Todd Pigram
@@ -17,16 +17,15 @@
 # limitations under the License.
 #
 
-# install filezilla
-windows_package "FileZilla_3.7.3" do
-  source node[:filezilla][:url]
+# install notepad++
+windows_package "NotePad++" do 
+  source node[:notepad][:url]
   action :install
-  not_if {::File.exists?(node[:filezilla][:file])}
-  not_if {reboot_pending?}
+  not_if{reboot_pending?}
 end
 
-# if feature installs, schedule a reboot at end of chef run
+# if reboot_pending
 windows_reboot 60 do
-  reason 'reboot needed'
+  reason 'cause chef said so'
   only_if {reboot_pending?}
 end 

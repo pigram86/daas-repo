@@ -1,5 +1,5 @@
 #
-# Cookbook Name:: filezilla
+# Cookbook Name:: putty
 # Recipe:: default
 #
 # Copyright 2013, Todd Pigram
@@ -17,16 +17,5 @@
 # limitations under the License.
 #
 
-# install filezilla
-windows_package "FileZilla_3.7.3" do
-  source node[:filezilla][:url]
-  action :install
-  not_if {::File.exists?(node[:filezilla][:file])}
-  not_if {reboot_pending?}
-end
-
-# if feature installs, schedule a reboot at end of chef run
-windows_reboot 60 do
-  reason 'reboot needed'
-  only_if {reboot_pending?}
-end 
+default[:putty][:url] = "http://the.earth.li/~sgtatham/putty/latest/x86/putty-0.63-installer.exe"
+default[:putty][:file] = "C:/Program Files (x86)/PuTTY/putty.exe"

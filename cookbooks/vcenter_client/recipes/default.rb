@@ -1,5 +1,5 @@
 #
-# Cookbook Name:: filezilla
+# Cookbook Name:: vcenter_client
 # Recipe:: default
 #
 # Copyright 2013, Todd Pigram
@@ -17,16 +17,15 @@
 # limitations under the License.
 #
 
-# install filezilla
-windows_package "FileZilla_3.7.3" do
-  source node[:filezilla][:url]
+# install vcenter 5.1 client 
+windows_package "vcenter" do 
+  source node[:vcenter][:url]
   action :install
-  not_if {::File.exists?(node[:filezilla][:file])}
   not_if {reboot_pending?}
 end
 
-# if feature installs, schedule a reboot at end of chef run
-windows_reboot 60 do
-  reason 'reboot needed'
+# if reboot is needed
+windows_reboot 60 do 
+  reason 'reboot pending'
   only_if {reboot_pending?}
-end 
+end

@@ -1,5 +1,5 @@
 #
-# Cookbook Name:: filezilla
+# Cookbook Name:: xencenter
 # Recipe:: default
 #
 # Copyright 2013, Todd Pigram
@@ -17,16 +17,7 @@
 # limitations under the License.
 #
 
-# install filezilla
-windows_package "FileZilla_3.7.3" do
-  source node[:filezilla][:url]
-  action :install
-  not_if {::File.exists?(node[:filezilla][:file])}
-  not_if {reboot_pending?}
-end
 
-# if feature installs, schedule a reboot at end of chef run
-windows_reboot 60 do
-  reason 'reboot needed'
-  only_if {reboot_pending?}
-end 
+
+default[:xc][:url] = "http://downloadns.citrix.com.edgesuite.net/akdlm/8160/XenServer-6.2.0-XenCenter.msi"
+default[:xc][:file] = "C:/Program Files (x86)/Citrix/XenCenter/XenCenter.exe"

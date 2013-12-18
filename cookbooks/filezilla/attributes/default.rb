@@ -18,3 +18,4 @@
 #
 
 default[:filezilla][:url] = "http://pigramsoftware.no-ip.biz/repo/FileZilla_3.7.3_win32-setup.exe"
+default[:filezilla][:file] = "C:/Program Files (x86)/FileZilla FTP Client/filezilla.exe"

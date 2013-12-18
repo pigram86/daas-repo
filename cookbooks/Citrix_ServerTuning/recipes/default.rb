@@ -214,3 +214,14 @@ registry_key "HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Dfrg\\BootOptimizeFunctio
   recursive true  
   action :create
 end
+
+# disable java update
+registry_key "HKEY_LOCAL_MACHINE\\SOFTWARE\\Wow6432Node\\JavaSoft\\Java Update\\Policy" do
+  values [{
+    :name => "EnableJavaUpdate",
+    :type => :dword,
+    :data => 00000000
+    }]
+  recursive true
+  action :create
+end
