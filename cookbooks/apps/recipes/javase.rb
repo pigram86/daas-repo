@@ -22,7 +22,7 @@ windows_Package "jre-7u40-windows-x64" do
   options "/qn"
   installer_type :custom
   action :install
-  not_if {::FILE.exists?("C:\\Program Files\\Java\\jdk1.7.0_45\\jre.msi")}
+  not_if {::File.exists?("C:\\Program Files\\Java\\jdk1.7.0_45\\jre.msi")}
   not_if {reboot_pending?}
 end
 
