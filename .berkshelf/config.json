@@ -1,8 +1,8 @@
 {
   "chef": {
-    "chef_server_url": "https://api.opscode.com/organizations/pigtest",
+    "chef_server_url": "https://api.opscode.com/organizations/daas",
     "validation_client_name": "daas-validator",
-    "validation_key_path": ".chef/dass-validator.pem",
+    "validation_key_path": ".chef/daas-validator.pem",
     "client_key": ".chef/toddpigram.pem",
     "node_name": "pigram86"
   },
